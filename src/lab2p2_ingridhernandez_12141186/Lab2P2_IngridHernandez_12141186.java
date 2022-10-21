@@ -18,13 +18,17 @@ public class Lab2P2_IngridHernandez_12141186 {
     /**
      * @param args the command line arguments
      */
+    static ArrayList jugadores = new ArrayList();
+    static  ArrayList bot = new ArrayList();
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner lea = new Scanner(System.in);
 
         boolean centinela = true;
-        ArrayList jugadores = new ArrayList();
-        ArrayList bot = new ArrayList();
+        
+        defaultjuga();
+        dafaultbot();
+        
 
         while (centinela == true) {
             System.out.println("==========Menu=========");
@@ -34,6 +38,7 @@ public class Lab2P2_IngridHernandez_12141186 {
             System.out.println("3)Agregar Item a Juagdor");
             System.out.println("4)Jugar");
             System.out.println("5)listar Jugador");
+            System.out.println("6)listar Bots");
             System.out.print("Ingrese la opcion que desea: ");
             int opcion = lea.nextInt();
             switch (opcion) {
@@ -132,12 +137,13 @@ public class Lab2P2_IngridHernandez_12141186 {
                 }//fin del case 3
                 break;
                 case 4: {
-                    
+                    Object[][] tablero = new Object[30][30];
+                        tablero = llenar();
+                        imprimirTablero(tablero);
                     char resp = 's';
                     System.out.println();
                     while (resp == 's' || resp == 'S') {
-                        Object[][] tablero = new Object[30][30];
-                        tablero = llenar();
+                        tablero = llenarobst();
                         imprimirTablero(tablero);
                         System.out.println("Desea continuar?");
                         resp = lea.next().charAt(0);
@@ -149,6 +155,18 @@ public class Lab2P2_IngridHernandez_12141186 {
                     for (Object t : jugadores) {
                         if (t instanceof Jugador) {
                             salida += jugadores.indexOf(t) + "- " + t + "\n";
+                        }
+
+                    }
+                    System.out.println(salida);
+                }
+
+                break;
+                case 6: {
+                    String salida = "";
+                    for (Object t : bot) {
+                        if (t instanceof Bot) {
+                            salida += bot.indexOf(t) + "- " + t + "\n";
                         }
 
                     }
@@ -177,13 +195,36 @@ public class Lab2P2_IngridHernandez_12141186 {
     }//fin metodo
 
     public static Object[][] llenar() {
-Object[][] tmatriz = new Object[30][30];
+        Object[][] tmatriz = new Object[30][30];
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < 30; j++) {
 
             }
         }
         return tmatriz;
-
+    }
+    public static Object[][] llenarobst() {
+        Object[][] tmatriz = new Object[30][30];
+        for (int i = 0; i < tmatriz.length; i++) {
+            for (int j = 0; j < tmatriz[i].length; j++) {
+                  System.out.print("[X]");
+            }
+        }
+        return tmatriz;
+    }
+    public static void defaultjuga(){
+    
+    jugadores.add(new Jugador("Jugador ","a",0,70));
+    jugadores.add(new Jugador("Jugador 2 ","s",0,70));
+    jugadores.add(new Jugador("Jugador 3","d",0,70));
+    jugadores.add(new Jugador("Jugador 4 ","f",0,70));
+   
+    
+}
+    public static void dafaultbot(){
+        
+        bot.add(new Bot(80,"Q","fuerza","audio 1","audio post morten"));
+         bot.add(new Bot(80,"Q","Lento","audio 2","audio post morten 2"));
+        
     }
 }
