@@ -5,6 +5,7 @@
 package lab2p2_ingridhernandez_12141186;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -80,8 +81,16 @@ public class Lab2P2_IngridHernandez_12141186 {
                      }
                       
                 }//fin del case 3
-                case 4:{
-                    
+                case 4: {
+                   Object [][] tablero = new Object[30][30];
+                   
+                    char resp = 's';
+                    System.out.println();
+                    while (resp == 's' || resp == 'S') {
+
+                        System.out.println("Desea continuar?");
+                        resp = lea.next().charAt(0);
+                    }//fin del while
                 }//fin del case 3
                 case 5:{
                   String salida = "";
@@ -105,4 +114,30 @@ public class Lab2P2_IngridHernandez_12141186 {
     }//fin while
     }
     
+     public static void imprimirTablero(Object [][] tablero, int filas, int col) {
+        
+       if(filas == tablero.length-1 && col == tablero[0].length-1){
+           System.out.print("[ ]");
+       }else{
+           if(col == tablero[0].length-1){
+               System.out.print("");
+               System.out.println( "[ ]" ); 
+            imprimirTablero( tablero ,filas+1, 0);
+           }else{
+               System.out.print("[ ]"); 
+            imprimirTablero(tablero,filas, col+1);
+           }
+       }
+}//fin metodo
+     public Object[][] llenar (int filas, int col){
+         
+        Object [][]tmatriz = new Object[30][30];
+         for (int i = 0; i < 30; i++) {
+             for (int j = 0; j < 30; j++) {
+                 
+             }
+         }
+         return tmatriz;
+         
+     }
 }
