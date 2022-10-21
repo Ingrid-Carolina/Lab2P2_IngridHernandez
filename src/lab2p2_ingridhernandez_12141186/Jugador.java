@@ -15,7 +15,7 @@ public class Jugador {
     private String caracter;
     private int victoria;
     private int dinero;
-    private ArrayList<Integer> item = new ArrayList ();
+    private ArrayList<String> item = new ArrayList ();
 
     public Jugador() {
     }
@@ -59,14 +59,15 @@ public class Jugador {
         this.dinero = dinero;
     }
 
-    public ArrayList<Integer> getItem() {
+    public ArrayList<String> getItem() {
         return item;
     }
 
-    public void setItem(ArrayList<Integer> item) {
+    public void setItem(ArrayList<String> item) {
         this.item = item;
     }
 
+   
     @Override
     public String toString() {
         return "Jugador{" + "nombre=" + nombre + ", caracter=" + caracter + ", victoria=" + victoria + ", dinero=" + dinero + ", item=" + item + '}';

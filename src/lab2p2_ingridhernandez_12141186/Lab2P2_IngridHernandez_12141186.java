@@ -53,6 +53,20 @@ public class Lab2P2_IngridHernandez_12141186 {
                 }//fin del case 2
                 break;
                 case 3:{
+                    System.out.println("Agregar Item");
+                    
+                    System.out.println("Ingrese la posicion del Jugador:");
+                    int p = lea.nextInt();
+                     if (jugadores.get(p)instanceof Jugador jugador) {
+                         System.out.println("Ingrese el Item que desea agregar: ");
+                         String it = lea.next();
+                         jugador.getItem().add(it);
+                         System.out.println("Se Agregador Exitosamente el Item al Jugador");
+                     }else{
+                         System.out.println("NO hay ningun Jugador en esa posicion");
+                     }
+                     
+                            
                     
                 }//fin del case 3
                 case 4:{
@@ -66,7 +80,7 @@ public class Lab2P2_IngridHernandez_12141186 {
                     }
                     
                 }
-                JOptionPane.showMessageDialog(null, salida);  
+                    System.out.println(salida); 
                 }
                     
                 break;
