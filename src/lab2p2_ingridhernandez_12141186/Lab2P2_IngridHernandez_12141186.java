@@ -23,6 +23,7 @@ public class Lab2P2_IngridHernandez_12141186 {
         
         boolean centinela = true;
         ArrayList jugadores  = new ArrayList();
+        ArrayList bot = new ArrayList();
         
         while(centinela == true){
             System.out.println("==========Menu=========");
@@ -38,7 +39,7 @@ public class Lab2P2_IngridHernandez_12141186 {
                     System.out.println("Agregar Jugador");
                     System.out.println("Ingrese el nombre del jugador: ");
                     String nom =  lea.next();
-                    System.out.println("Ingrese el Caracter que represente al Jugador: ");
+                    System.out.println("Ingrese el Caracter(minusculas) que represente al Jugador: ");
                     String cara =  lea.next();
                     System.out.println("Ingrese cuantas Victorias tiene el jugador: ");
                     int vict = lea.nextInt();
@@ -49,6 +50,9 @@ public class Lab2P2_IngridHernandez_12141186 {
                 }//fin del case 1
                 break;
                 case 2:{
+                    System.out.println("Crear Bot");
+                    System.out.println("Ingrese la velocidad del Bot: ");
+                    int velo = lea.nextInt();
                     
                 }//fin del case 2
                 break;
@@ -65,9 +69,7 @@ public class Lab2P2_IngridHernandez_12141186 {
                      }else{
                          System.out.println("NO hay ningun Jugador en esa posicion");
                      }
-                     
-                            
-                    
+                      
                 }//fin del case 3
                 case 4:{
                     
