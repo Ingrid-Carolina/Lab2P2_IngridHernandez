@@ -68,7 +68,7 @@ public class Bot {
 
     @Override
     public String toString() {
-        return "Bot{" + "velo=" + velo + ", carB=" + carB + ", aspectos=" + aspectos + ", audio=" + audio + ", audiopostmortem=" + audiopostmortem + '}';
+        return "Bot[" + "velocidad =" + velo + ", caracteristica del Bot =" + carB + ", aspectos=" + aspectos + ", audio=" + audio + ", audio post mortem=" + audiopostmortem + ']';
     }
       
       

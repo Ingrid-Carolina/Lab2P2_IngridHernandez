@@ -53,7 +53,16 @@ public class Lab2P2_IngridHernandez_12141186 {
                     System.out.println("Crear Bot");
                     System.out.println("Ingrese la velocidad del Bot: ");
                     int velo = lea.nextInt();
-                    
+                    System.out.println("Ingrese el Caracter(mayusculas) que represente al Bot:");
+                    String caract= lea.next();
+                    System.out.println("Ingrese el Aspecto del Bot: ");
+                    String asp = lea.next();
+                    System.out.println("Ingrese el Audio del Bot: ");
+                    String aud = lea.next();
+                    System.out.println("Ingrese el Audio post mortem: ");
+                    String post = lea.next();
+                    bot.add(new Bot(velo,caract,asp,aud,post));
+                    System.out.println(bot);
                 }//fin del case 2
                 break;
                 case 3:{
