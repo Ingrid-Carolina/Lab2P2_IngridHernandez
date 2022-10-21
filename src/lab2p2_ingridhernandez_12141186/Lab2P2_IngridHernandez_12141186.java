@@ -4,7 +4,9 @@
  */
 package lab2p2_ingridhernandez_12141186;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +22,7 @@ public class Lab2P2_IngridHernandez_12141186 {
         Scanner lea = new Scanner(System.in);
         
         boolean centinela = true;
+        ArrayList jugadores  = new ArrayList();
         
         while(centinela == true){
             System.out.println("==========Menu=========");
@@ -32,6 +35,16 @@ public class Lab2P2_IngridHernandez_12141186 {
             int opcion = lea.nextInt();
             switch (opcion){
                 case 1:{
+                    System.out.println("Agregar Jugador");
+                    System.out.println("Ingrese el nombre del jugador: ");
+                    String nom =  lea.next();
+                    System.out.println("Ingrese el Caracter que represente al Jugador: ");
+                    String cara =  lea.next();
+                    System.out.println("Ingrese cuantas Victorias tiene el jugador: ");
+                    int vict = lea.nextInt();
+                    System.out.println("Ingrese la cantidad de dinero que tiene el Jugador: ");
+                    int din = lea.nextInt();
+                    jugadores.add(new Jugador(nom,cara,vict,din));
                     
                 }//fin del case 1
                 break;
@@ -42,6 +55,20 @@ public class Lab2P2_IngridHernandez_12141186 {
                 case 3:{
                     
                 }//fin del case 3
+                case 4:{
+                    
+                }//fin del case 3
+                case 5:{
+                  String salida = "";
+                for (Object t: jugadores) {
+                    if(t instanceof Jugador){
+                     salida+= jugadores.indexOf(t )+ "- "+ t +"\n";   
+                    }
+                    
+                }
+                JOptionPane.showMessageDialog(null, salida);  
+                }
+                    
                 break;
                 case 0:
                     centinela = false;

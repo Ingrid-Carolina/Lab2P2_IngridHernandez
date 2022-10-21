@@ -9,7 +9,7 @@ package lab2p2_ingridhernandez_12141186;
  * @author ADMINISTRADOR1
  */
 public class Tablero {
-    char[][] tablero = new char[30][30];
+    Object [][] tablero = new Object[30][30];
 
     public Tablero() {
         imprimirTablero(0, 0);
