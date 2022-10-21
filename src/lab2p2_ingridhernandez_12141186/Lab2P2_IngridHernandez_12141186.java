@@ -5,9 +5,11 @@
 package lab2p2_ingridhernandez_12141186;
 
 import java.util.ArrayList;
+
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -18,6 +20,7 @@ public class Lab2P2_IngridHernandez_12141186 {
     /**
      * @param args the command line arguments
      */
+    static Random r = new Random();
     static ArrayList jugadores = new ArrayList();
     static  ArrayList bot = new ArrayList();
     public static void main(String[] args) {
@@ -70,6 +73,7 @@ public class Lab2P2_IngridHernandez_12141186 {
                     String post = lea.next();
                     bot.add(new Bot(velo, caract, asp, aud, post));
                     System.out.println(bot);
+                    Collections.shuffle(bot);
                 }//fin del case 2
                 break;
                 case 3: {
@@ -114,6 +118,8 @@ public class Lab2P2_IngridHernandez_12141186 {
                                    String poi= "Iluminado";
                                     int qw = 60;
                                    ((Jugador) jugadores.get(p)).getItem().add(poi); 
+                                   Collections.shuffle(jugadores);
+                                   
                                 }
                                 break;
                                 
@@ -137,16 +143,15 @@ public class Lab2P2_IngridHernandez_12141186 {
                 }//fin del case 3
                 break;
                 case 4: {
-                    Object[][] tablero = new Object[30][30];
-                        tablero = llenar();
-                        imprimirTablero(tablero);
                     char resp = 's';
                     System.out.println();
                     while (resp == 's' || resp == 'S') {
-                        tablero = llenarobst();
+                       Object[][] tablero = new Object[30][30];
+                        tablero = llenar();
                         imprimirTablero(tablero);
                         System.out.println("Desea continuar?");
                         resp = lea.next().charAt(0);
+                        
                     }//fin del while
                 }//fin del case 3
                 break;
@@ -187,31 +192,44 @@ public class Lab2P2_IngridHernandez_12141186 {
     public static void imprimirTablero(Object[][] tablero) {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
-                System.out.print("[ ]");
+                System.out.print("["+tablero[i][j]+"]");
             }
-           System.out.println(); 
+           System.out.println(""); 
         }
 
     }//fin metodo
 
     public static Object[][] llenar() {
-        Object[][] tmatriz = new Object[30][30];
-        for (int i = 0; i < 30; i++) {
-            for (int j = 0; j < 30; j++) {
+        Object[][] matriz = new Object[30][30];
+        int cont1 = 0;
+        int cont2 = 0;
+        int a;
+        int a1;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                a= 1+ r.nextInt(29);
+                if(cont1 < 150){
+                    matriz[a][j]='X';
+                    cont1 = cont1 + 1;
+                }
+            }
+            if(cont2 < 150){
+                a1= 1 + r.nextInt(29);
+                    matriz[i][a1]='X';
+                    cont2 = cont2 + 1;
+                }    
+        }
+        for (int p = 0; p< matriz.length; p++) {
+            for (int q = 0; q<matriz[p].length; q++) {
+              if(matriz[p][q]== null){
+                  matriz[p][q] = " ";
+              }  
+            }
+ 
+        }
+        return matriz;
+    }
 
-            }
-        }
-        return tmatriz;
-    }
-    public static Object[][] llenarobst() {
-        Object[][] tmatriz = new Object[30][30];
-        for (int i = 0; i < tmatriz.length; i++) {
-            for (int j = 0; j < tmatriz[i].length; j++) {
-                  System.out.print("[X]");
-            }
-        }
-        return tmatriz;
-    }
     public static void defaultjuga(){
     
     jugadores.add(new Jugador("Jugador ","a",0,70));
@@ -227,4 +245,5 @@ public class Lab2P2_IngridHernandez_12141186 {
          bot.add(new Bot(80,"Q","Lento","audio 2","audio post morten 2"));
         
     }
+    
 }
