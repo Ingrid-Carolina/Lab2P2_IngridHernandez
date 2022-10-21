@@ -56,7 +56,7 @@ public class Lab2P2_IngridHernandez_12141186 {
                     System.out.println("Ingrese la cantidad de dinero que tiene el Jugador: ");
                     int din = lea.nextInt();
                     jugadores.add(new Jugador(nom, cara, vict, din));
-
+Collections.shuffle(jugadores);
                 }//fin del case 1
                 break;
                 case 2: {
@@ -118,7 +118,6 @@ public class Lab2P2_IngridHernandez_12141186 {
                                    String poi= "Iluminado";
                                     int qw = 60;
                                    ((Jugador) jugadores.get(p)).getItem().add(poi); 
-                                   Collections.shuffle(jugadores);
                                    
                                 }
                                 break;
