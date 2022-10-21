@@ -14,5 +14,62 @@ public class Bot {
     private String aspectos;
      private String audio;
       private String audiopostmortem;
+
+    public Bot() {
+    }
+
+    public Bot(int velo, String carB, String aspectos, String audio, String audiopostmortem) {
+        this.velo = velo;
+        this.carB = carB;
+        this.aspectos = aspectos;
+        this.audio = audio;
+        this.audiopostmortem = audiopostmortem;
+    }
+
+    public int getVelo() {
+        return velo;
+    }
+
+    public void setVelo(int velo) {
+        this.velo = velo;
+    }
+
+    public String getCarB() {
+        return carB;
+    }
+
+    public void setCarB(String carB) {
+        this.carB = carB;
+    }
+
+    public String getAspectos() {
+        return aspectos;
+    }
+
+    public void setAspectos(String aspectos) {
+        this.aspectos = aspectos;
+    }
+
+    public String getAudio() {
+        return audio;
+    }
+
+    public void setAudio(String audio) {
+        this.audio = audio;
+    }
+
+    public String getAudiopostmortem() {
+        return audiopostmortem;
+    }
+
+    public void setAudiopostmortem(String audiopostmortem) {
+        this.audiopostmortem = audiopostmortem;
+    }
+
+    @Override
+    public String toString() {
+        return "Bot{" + "velo=" + velo + ", carB=" + carB + ", aspectos=" + aspectos + ", audio=" + audio + ", audiopostmortem=" + audiopostmortem + '}';
+    }
+      
       
 }
