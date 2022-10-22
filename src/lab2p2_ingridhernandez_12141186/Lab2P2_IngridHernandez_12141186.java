@@ -21,8 +21,8 @@ public class Lab2P2_IngridHernandez_12141186 {
      * @param args the command line arguments
      */
     static Random r = new Random();
-    static ArrayList jugadores = new ArrayList();
-    static  ArrayList bot = new ArrayList();
+    static ArrayList<Jugador> jugadores = new ArrayList();
+    static  ArrayList<Bot>bot = new ArrayList();
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner lea = new Scanner(System.in);
@@ -49,14 +49,31 @@ public class Lab2P2_IngridHernandez_12141186 {
                     System.out.println("Agregar Jugador");
                     System.out.println("Ingrese el nombre del jugador: ");
                     String nom = lea.next();
+                     
+                         for (int i = 0; i < jugadores.size(); i++) {
+                            if(nom.equals(jugadores.get(i).getNombre())){
+                              System.out.println("Este nombre no es posible poner");
+                        System.out.println("Ingrese un nuevo nombre del jugador:");
+                        nom = lea.next();  
+                         }
+                        
+                    }
                     System.out.println("Ingrese el Caracter(minusculas) que represente al Jugador: ");
                     String cara = lea.next();
+                    for (int i = 0; i < jugadores.size(); i++) {
+                       if(cara.equals(jugadores.get(i).getCaracter())){
+                        System.out.println("Este caracter no es posible poner");
+                        System.out.println("Ingrese un nuevo el Caracter(minusculas) que represente al Jugador:");
+                        cara = lea.next();
+                    }  
+                    }
+//                   
                     System.out.println("Ingrese cuantas Victorias tiene el jugador: ");
                     int vict = lea.nextInt();
                     System.out.println("Ingrese la cantidad de dinero que tiene el Jugador: ");
                     int din = lea.nextInt();
                     jugadores.add(new Jugador(nom, cara, vict, din));
-Collections.shuffle(jugadores);
+                    Collections.shuffle(jugadores);
                 }//fin del case 1
                 break;
                 case 2: {
@@ -65,6 +82,14 @@ Collections.shuffle(jugadores);
                     int velo = lea.nextInt();
                     System.out.println("Ingrese el Caracter(mayusculas) que represente al Bot:");
                     String caract = lea.next();
+                    for (int i = 0; i < bot.size(); i++) {
+                       if(caract.equals(bot.get(i).getCarB())){
+                        System.out.println("Este caracter no es posible poner");
+                        System.out.println("Ingrese un nuevo el Caracter(minusculas) que represente al Jugador:");
+                        caract = lea.next();
+                    }  
+                    }
+                    
                     System.out.println("Ingrese el Aspecto del Bot: ");
                     String asp = lea.next();
                     System.out.println("Ingrese el Audio del Bot: ");
@@ -148,6 +173,8 @@ Collections.shuffle(jugadores);
                        Object[][] tablero = new Object[30][30];
                         tablero = llenar();
                         imprimirTablero(tablero);
+                         imprimirTablero(llenartodo(tablero,jugadores,bot));
+                        
                         System.out.println("Desea continuar?");
                         resp = lea.next().charAt(0);
                         
@@ -228,6 +255,35 @@ Collections.shuffle(jugadores);
         }
         return matriz;
     }
+    public static Object[][] llenartodo(Object[][]tablero,ArrayList jugadores,ArrayList bot) {
+        Object[][] matriz = new Object[30][30];
+        Random r2 = new Random();
+        int a;
+        int r;
+        int cont1 = 0;
+        int cont2 = 0;
+        for (int i = 0; i < matriz.length ; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+              a = 1 +r2.nextInt(29);
+              r = 1+ r2.nextInt(29);
+              if(cont1 <jugadores.size()){
+                  matriz[a][r]=((Jugador)jugadores.get(cont1)).getCaracter();
+                  cont1 = cont1 +1;
+              }
+              int r0=1 +r2.nextInt(29);
+              int r3= 1 +r2.nextInt(29);
+              if(cont2 < bot.size() ){
+                  matriz[r0][r3] = ((Bot)bot.get(cont2)).getCarB();
+                  cont2 = cont2 +1;
+                  if(r==r0&&a==r3){
+                      System.out.println("El bot "+((Bot)bot.get(cont2)).getCarB()+ "derribo a"+ ((Jugador)jugadores.get(cont1)).getCaracter());
+                  }
+              }
+              
+            }
+        }
+        return matriz;
+    }
 
     public static void defaultjuga(){
     
@@ -241,7 +297,7 @@ Collections.shuffle(jugadores);
     public static void dafaultbot(){
         
         bot.add(new Bot(80,"Q","fuerza","audio 1","audio post morten"));
-         bot.add(new Bot(80,"Q","Lento","audio 2","audio post morten 2"));
+         bot.add(new Bot(80,"P","Lento","audio 2","audio post morten 2"));
         
     }
     
