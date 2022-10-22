@@ -221,7 +221,7 @@ public class Lab2P2_IngridHernandez_12141186 {
                 if(tablero[i][j]!= null){
                 System.out.print("["+tablero[i][j]+"]");
                 }else{
-                    System.out.println("[ ]");
+                    System.out.print("[ ]");
                 }
             }
            System.out.println(""); 
